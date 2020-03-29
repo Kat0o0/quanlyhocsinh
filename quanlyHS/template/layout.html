@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type = "text/css" href ="{{url_for('static', filename= 'main.css')}}">
+    {% if title %}
+        <title>Flask blog - {{title}} </title>
+    {% else %}
+        <title> Flask blog </title>
+    {% endif %}
+    <style>
+        .header {
+        background-color: #6de9faf5;
+        padding: 20px;
+        text-align: center;
+        }
+        ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
+          border: 1px solid #e7e7e7;
+          background-color: #f3f3f3;
+        }
+        
+        li {
+          float: left;
+        }
+        
+        li a {
+          display: block;
+          color: #666;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+        }
+        
+        li a:hover:not(.active) {
+          background-color: #ddd;
+        }
+        
+        li a.active {
+          color: white;
+          background-color: rgb(52, 168, 56);
+        }
+    </style>
+</head>
+<body> 
+    <div class="header">
+        <h1>WELCOM TO BIG KAT'sHOUSE</h1>
+      </div>
+      
+    <ul>
+        <li><a class="active" href="/home">Home</a></li>
+        <li><a href="/admin">admin</a></li>
+        <li><a href="/about">My cats</a></li>
+        {% if current_user.is_authenticated %}
+          <li style="float:right"><a href="/logout">Logout</a></li>
+          <li style="float:right"><a href="/account">Account</a></li>
+          <li><a href="/diemdanh">Điểm danh</a></li>
+
+        {% else %}
+          <li style="float:right"><a href="/login">Login</a></li>
+          <li style = "float:right"><a href="/register">Register</a></li>
+        {% endif %}
+      </ul>
+    <main role="main" class="container">
+        <div class="row">
+            <div class="col-md-8" style="margin-left:25%;padding:1px 16px;height:1000px;">
+                {% with messages = get_flashed_messages(with_categories = true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class ="alert alert-{{ category }}">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                {% block content %}{% endblock %}
+            </div>
+            <div class="col-md-4">
+                <div class="content-section">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

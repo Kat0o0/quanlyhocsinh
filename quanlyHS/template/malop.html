@@ -1,0 +1,36 @@
+
+{% extends "layout.html" %}
+{% block content %}
+    <div class = "content-section">
+        <form method ="POST" action = "">
+            {{new_lop.hidden_tag()}}
+            <fieldset class = "form-group">
+                <legend class = "border-bottom md-4">Join today</legend>
+                <div class = "form-group">
+                    {{new_lop.MaLop.label(class= "form-control-label")}}
+                    {% if new_lop.MaLop.errors %}
+                    <div class="invalid-feedback">
+                        {{new_lop.MaLop(class="form-control form control-lg is-invalid")}}
+                        {% for error in new_lop.MaLop.errors %}
+                            <span>{{ error }} </span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                        {{new_lop.MaLop(class="form-control form control-lg")}}
+                    {% endif %}
+                </div>
+                <div class = "form-group">
+                    {{new_lop.GVCN.label(class= "form-control-label")}}
+                    {{new_lop.GVCN(class="form-control form control-lg")}}
+                </div>
+                <div class = "form-group">
+                    {{new_lop.PhongHoc.label(class= "form-control-label")}}
+                    {{new_lop.PhongHoc(class="form-control form control-lg")}}
+                </div>
+            </fieldset>
+            <div class = "form-group">
+                {{ new_lop.submit(class= "btn btn-outline-info") }}
+            </div>
+        </form>
+    </div>
+{% endblock content %}

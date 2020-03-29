@@ -1,0 +1,95 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class = "content-section">
+    <form method ="POST" action = "">
+        {{ld.hidden_tag()}}
+        <fieldset class = "form-group">
+            <legend class = "border-bottom md-4">Thêm lịch dạy</legend>
+            <div class = "form-group">
+                {{ld.MaLop.label(class= "form-control-label")}}
+                {% if ld.MaLop.errors %}
+                <div class="invalid-feedback">
+                    {{ld.MaLop(class="form-control form control-lg is-invalid")}}
+                    {% for error in ld.MaLop.errors %}
+                        <span>{{ error }} </span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                    {{ld.MaLop(class="form-control form control-lg")}}
+                {% endif %}
+                
+            </div>
+            <div class = "form-group">
+                {{ld.MaGV.label(class= "form-control-label")}}
+                {% if ld.MaGV.errors %}
+                <div class="invalid-feedback">
+                    {{ld.MaGV(class="form-control form control-lg is-invalid")}}
+                    {% for error in ld.MaGV.errors %}
+                        <span>{{ error }} </span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                    {{ld.MaGV(class="form-control form control-lg")}}
+                {% endif %}
+                
+            </div>
+            <div class = "form-group">
+                {{ld.NamHoc.label(class= "form-control-label")}}
+                {% if ld.NamHoc.errors %}
+                <div class="invalid-feedback">
+                    {{ld.NamHoc(class="form-control form control-lg is-invalid")}}
+                    {% for error in ld.NamHoc.errors %}
+                        <span>{{ error }} </span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                    {{ld.NamHoc(class="form-control form control-lg")}}
+                {% endif %}
+                
+            </div>
+            <div class = "form-group">
+                {{ld.KyHoc.label(class= "form-control-label")}}
+                {% if ld.KyHoc.errors %}
+                <div class="invalid-feedback">
+                    {{ld.KyHoc(class="form-control form control-lg is-invalid")}}
+                    {% for error in ld.KyHoc.errors %}
+                        <span>{{ error }} </span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                    {{ld.KyHoc(class="form-control form control-lg")}}
+                {% endif %}
+            </div>
+
+            <div class = "form-group">
+                {{ld.Monday.label(class= "form-control-label")}}
+               
+                {{ld.Monday(class="form-control form control-lg")}}
+            </div>
+            <div class = "form-group">
+                {{ld.Tuesday.label(class= "form-control-label")}}
+               
+                {{ld.Tuesday(class="form-control form control-lg")}}
+            </div>
+            <div class = "form-group">
+                {{ld.Wednesday.label(class= "form-control-label")}}
+               
+                {{ld.Wednesday(class="form-control form control-lg")}}
+            </div>
+            <div class = "form-group">
+                {{ld.Thursday.label(class= "form-control-label")}}
+               
+                {{ld.Thursday(class="form-control form control-lg")}}
+            </div>
+            <div class = "form-group">
+                {{ld.Friday.label(class= "form-control-label")}}
+                {{ld.Friday(class="form-control form control-lg")}}
+            </div>
+        </fieldset>
+        <div class = "form-group">
+            {{ ld.submit(class= "btn btn-outline-info") }}
+        </div>
+    </form>
+</div>
+
+{% endblock content %}

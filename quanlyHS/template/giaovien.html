@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class = "content-section">
+        <form method ="POST" action = "">
+            {{gv.hidden_tag()}}
+            <fieldset class = "form-group">
+                <legend class = "border-bottom md-4">Thêm giáo viên</legend>
+                <div class = "form-group">
+                    {{gv.MaGV.label(class= "form-control-label")}}
+                    {% if gv.MaGV.errors %}
+                    <div class="invalid-feedback">
+                        {{gv.MaGV(class="form-control form control-lg is-invalid")}}
+                        {% for error in gv.MaGV.errors %}
+                            <span>{{ error }} </span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                        {{gv.MaGV(class="form-control form control-lg")}}
+                    {% endif %}
+                    
+                </div>
+                <div class = "form-group">
+                    {{gv.TenGV.label(class= "form-control-label")}}
+                    {% if gv.TenGV.errors %}
+                    <div class="invalid-feedback">
+                        {{gv.TenGV(class="form-control form control-lg is-invalid")}}
+                        {% for error in gv.TenGV.errors %}
+                            <span>{{ error }} </span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                        {{gv.TenGV(class="form-control form control-lg")}}
+                    {% endif %}
+                    
+                </div>
+                <div class = "form-group">
+                    {{gv.NgaySinh.label(class= "form-control-label")}}
+                    {% if gv.NgaySinh.errors %}
+                    <div class="invalid-feedback">
+                        {{gv.NgaySinh(class="form-control form control-lg is-invalid")}}
+                        {% for error in gv.NgaySinh.errors %}
+                            <span>{{ error }} </span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                        {{gv.NgaySinh(class="form-control form control-lg")}}
+                    {% endif %}
+                    
+                </div>
+                <div class = "form-group">
+                    {{gv.GioiTinh.label(class= "form-control-label")}}
+                    {% if gv.GioiTinh.errors %}
+                    <div class="invalid-feedback">
+                        {{gv.GioiTinh(class="form-control form control-lg is-invalid")}}
+                        {% for error in gv.GioiTinh.errors %}
+                            <span>{{ error }} </span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                        {{gv.GioiTinh(class="form-control form control-lg")}}
+                    {% endif %}
+                    
+                </div>
+                <div class = "form-group">
+                    {{gv.Email.label(class= "form-control-label")}}
+                    {% if gv.Email.errors %}
+                    <div class="invalid-feedback">
+                        {{gv.Email(class="form-control form control-lg is-invalid")}}
+                        {% for error in gv.Email.errors %}
+                            <span>{{ error }} </span>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                        {{gv.Email(class="form-control form control-lg")}}
+                    {% endif %}
+                    
+                </div>
+
+            </fieldset>
+            <div class = "form-group">
+                {{ gv.submit(class= "btn btn-outline-info") }}
+            </div>
+        </form>
+    </div>
+
+{% endblock content %}

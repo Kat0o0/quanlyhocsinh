@@ -1,0 +1,116 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class = "content-section">
+    <form method ="POST" action = "">
+        {{hs.hidden_tag()}}
+        <fieldset class = "form-group">
+            <legend class = "border-bottom md-4">Them hoc sinh moi</legend>
+            <div class = "form-group">
+                {{hs.MaHS.label(class= "form-control-label")}}
+                {% if hs.MaHS.errors %}
+                <div class="invalid-feedback">
+                    {{hs.MaHS(class="form-control form control-lg is-invalid")}}
+                    {% for error in hs.MaHS.errors %}
+                        <span>{{ error }} </span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                    {{hs.MaHS(class="form-control form control-lg")}}
+                {% endif %}
+                
+            </div>
+            <div class = "form-group">
+                {{hs.TenHS.label(class= "form-control-label")}}
+                {% if hs.TenHS.errors %}
+                <div class="invalid-feedback">
+                    {{hs.TenHS(class="form-control form control-lg is-invalid")}}
+                    {% for error in hs.TenHS.errors %}
+                        <span>{{ error }} </span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                    {{hs.TenHS(class="form-control form control-lg")}}
+                {% endif %}
+                
+            </div>
+            <div class = "form-group">
+                {{hs.NgaySinh.label(class= "form-control-label")}}
+                {% if hs.NgaySinh.errors %}
+                <div class="invalid-feedback">
+                    {{hs.NgaySinh(class="form-control form control-lg is-invalid")}}
+                    {% for error in hs.NgaySinh.errors %}
+                        <span>{{ error }} </span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                    {{hs.NgaySinh(class="form-control form control-lg")}}
+                {% endif %}
+                
+            </div>
+            <div class = "form-group">
+                {{hs.GioiTinh.label(class= "form-control-label")}}
+                {% if hs.GioiTinh.errors %}
+                <div class="invalid-feedback">
+                    {{hs.GioiTinh(class="form-control form control-lg is-invalid")}}
+                    {% for error in hs.GioiTinh.errors %}
+                        <span>{{ error }} </span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                    {{hs.GioiTinh(class="form-control form control-lg")}}
+                {% endif %}
+                
+            </div>
+            <div class = "form-group">
+                {{hs.MaLop.label(class= "form-control-label")}}
+                {% if hs.MaLop.errors %}
+                <div class="invalid-feedback">
+                    {{hs.MaLop(class="form-control form control-lg is-invalid")}}
+                    {% for error in hs.MaLop.errors %}
+                        <span>{{ error }} </span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                    {{hs.MaLop(class="form-control form control-lg")}}
+                {% endif %}
+                
+            </div>
+            <div class = "form-group">
+                {{hs.Email.label(class= "form-control-label")}}
+                {% if hs.Email.errors %}
+                <div class="invalid-feedback">
+                    {{hs.Email(class="form-control form control-lg is-invalid")}}
+                    {% for error in hs.Email.errors %}
+                        <span>{{ error }} </span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                    {{hs.Email(class="form-control form control-lg")}}
+                {% endif %}
+                
+            </div>
+            <div class = "form-group">
+                {{hs.PhuHuynh.label(class= "form-control-label")}}
+               
+                {{hs.PhuHuynh(class="form-control form control-lg")}}
+            </div>
+            <div class = "form-group">
+                {{hs.SDT.label(class= "form-control-label")}}
+               
+                {{hs.SDT(class="form-control form control-lg")}}
+            </div>
+            <div class = "form-group">
+                {{hs.DiaChi.label(class= "form-control-label")}}
+               
+                {{hs.DiaChi(class="form-control form control-lg")}}
+            </div>
+
+        </fieldset>
+        <div class = "form-group">
+            {{ hs.submit(class= "btn btn-outline-info") }}
+
+        </div>
+    </form>
+</div>
+   
+{% endblock content %}
