@@ -2,7 +2,7 @@
 {% block content %}
     <div class="container-fluid">
         <div class="row">
-            <div class="col md-6">
+            <div class="col lg-6">
     
                 <form class="form-inline">
                     <div class = "form-group mb-2">
@@ -18,7 +18,7 @@
                         {{ dd.submit(class= "btn btn-outline-info") }}
                     </div>
                 </form>
-                <table class="table">
+                <table class="table table-hover table-sm">
                     <tr>
                         <thead class="thead-dark">
                             <th>Mã HS</th>
@@ -40,10 +40,7 @@
                             <td>{{i[0].NghiCoPhep}}</td>
                             <td>{{i[0].NghiKhongPhep}}</td>
                             <td>
-                                <a href="/update/{{row.id}}" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#modaledit{{row.id}}">Edit</a>
-                                <a href="/delete/{{row.id}}" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure To Delete ?')">Delete</a>
-    
-    
+                                <a href="/hocsinh/update/{{i[0].MaHS}}" class="btn btn-warning btn-xs" data-target="#modaledit{{i[0].MaHS}}">Edit</a>    
                             </td>
                         </tr>
                         {% endfor %}
